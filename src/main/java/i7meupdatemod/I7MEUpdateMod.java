@@ -31,7 +31,7 @@ public class I7MEUpdateMod {
         } catch (Exception e) {
             Log.warning("Error getting version: " + e);
         }
-        Log.info(String.format("I7MEUpdateMod Mod %s is loaded in %s with %s", MOD_VERSION, minecraftVersion, loader));
+        Log.info(String.format("I7MEUpdate Mod %s is loaded in %s with %s", MOD_VERSION, minecraftVersion, loader));
         Log.debug(String.format("Minecraft path: %s", minecraftPath));
         String userHome = System.getProperty("user.home");
         if (userHome.equals("null")) {
