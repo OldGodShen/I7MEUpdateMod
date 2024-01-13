@@ -45,5 +45,6 @@ jobs:
         continue-on-error: true
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v0.1.2
+          tag_name: v0.1.
           files: ${{github.workspace}}/build/libs/I7MEUpdateMod-0.1.2-all.jar
+          generate_release_notes: true
