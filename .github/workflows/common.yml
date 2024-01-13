@@ -56,5 +56,5 @@ jobs:
       -
         uses: actions/upload-artifact@v3
         with:
-          name: I18nUpdateMod-${{ inputs.type }}-${{ github.run_number }}
+          name: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}
           path: build/libs
