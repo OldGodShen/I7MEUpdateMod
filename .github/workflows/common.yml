@@ -35,11 +35,11 @@ jobs:
           IS_SNAPSHOT: ${{ inputs.is-snapshot }}
         run: |
           ./gradlew clean shadowJar --info --stacktrace
+          cp ./ ./build/libs/*.jar
       -
         uses: actions/upload-artifact@v3
         with:
           name: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar
-          path: build/libs
       - 
         name: 🧧 Create GitHub Release
         continue-on-error: true
