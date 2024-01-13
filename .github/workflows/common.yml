@@ -40,3 +40,11 @@ jobs:
         with:
           name: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}
           path: build/libs
+
+      - name: 🧧 Create GitHub Release => (${{ env.builddate }})
+        continue-on-error: true
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ inputs.type }}-${{ github.run_number }}
+          files: "I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar"
+          generate_release_notes: true
