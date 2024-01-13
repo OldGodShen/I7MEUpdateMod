@@ -40,6 +40,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar
+          path: build/libs
       - 
         name: 🧧 Create GitHub Release
         continue-on-error: true
