@@ -38,10 +38,10 @@ jobs:
       -
         uses: actions/upload-artifact@v3
         with:
-          name: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}
+          name: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar
           path: build/libs
-
-      - name: 🧧 Create GitHub Release => (${{ env.builddate }})
+      - 
+        name: 🧧 Create GitHub Release => (${{ env.builddate }})
         continue-on-error: true
         uses: softprops/action-gh-release@v1
         with:
