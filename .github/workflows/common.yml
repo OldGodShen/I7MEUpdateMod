@@ -47,4 +47,3 @@ jobs:
         with:
           tag_name: v0.1.2
           files: ${{github.workspace}}/build/libs/I7MEUpdateMod-0.1.2-all.jar
-          generate_release_notes: true
