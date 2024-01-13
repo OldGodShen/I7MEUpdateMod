@@ -1,4 +1,4 @@
-package i18nupdatemod.util;
+package i7meupdatemod.util;
 
 import org.jetbrains.annotations.NotNull;
 

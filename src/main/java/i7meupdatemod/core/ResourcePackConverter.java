@@ -1,9 +1,11 @@
-package i18nupdatemod.core;
+package i7meupdatemod.core;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import i18nupdatemod.util.FileUtil;
-import i18nupdatemod.util.Log;
+
+import i7meupdatemod.util.FileUtil;
+import i7meupdatemod.util.Log;
+
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;

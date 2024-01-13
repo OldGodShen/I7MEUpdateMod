@@ -1,0 +1,19 @@
+{
+  "version": "${version}",
+  "games": [
+    {
+      "gameVersions": "[1.20.4]",
+      "packFormat": 22,
+      "convertFrom": [
+        "1.20"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "targetVersion": "1.20",
+      "loader": "Fabric",
+      "filename": "Minecraft-Mod-Language-Modpack-1-20-Fabric.zip",
+    }
+  ]
+}

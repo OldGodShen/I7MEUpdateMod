@@ -1,14 +1,15 @@
-package i18nupdatemod;
+package i7meupdatemod;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import i18nupdatemod.core.GameConfig;
-import i18nupdatemod.core.I18nConfig;
-import i18nupdatemod.core.ResourcePack;
-import i18nupdatemod.core.ResourcePackConverter;
-import i18nupdatemod.entity.GameAssetDetail;
-import i18nupdatemod.util.FileUtil;
-import i18nupdatemod.util.Log;
+
+import i7meupdatemod.core.GameConfig;
+import i7meupdatemod.core.I18nConfig;
+import i7meupdatemod.core.ResourcePack;
+import i7meupdatemod.core.ResourcePackConverter;
+import i7meupdatemod.entity.GameAssetDetail;
+import i7meupdatemod.util.FileUtil;
+import i7meupdatemod.util.Log;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,13 +20,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class I18nUpdateMod {
-    public static final String MOD_ID = "i18nupdatemod";
+    public static final String MOD_ID = "i7meupdatemod";
     public static String MOD_VERSION;
 
     public static final Gson GSON = new Gson();
 
     public static void init(Path minecraftPath, String minecraftVersion, String loader) {
-        try (InputStream is = I18nConfig.class.getResourceAsStream("/i18nMetaData.json")) {
+        try (InputStream is = I18nConfig.class.getResourceAsStream("/i7meMetaData.json")) {
             MOD_VERSION = GSON.fromJson(new InputStreamReader(is), JsonObject.class).get("version").getAsString();
         } catch (Exception e) {
             Log.warning("Error getting version: " + e);

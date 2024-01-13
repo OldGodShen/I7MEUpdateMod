@@ -1,4 +1,4 @@
-package i18nupdatemod.entity;
+package i7meupdatemod.entity;
 
 public class AssetMetaData {
     public String loader;

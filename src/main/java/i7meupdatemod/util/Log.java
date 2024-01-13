@@ -1,4 +1,4 @@
-package i18nupdatemod.util;
+package i7meupdatemod.util;
 
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
