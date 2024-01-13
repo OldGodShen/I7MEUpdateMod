@@ -1,15 +1,14 @@
-package i7meupdatemod;
+package i18nupdatemod;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-
-import i7meupdatemod.core.GameConfig;
-import i7meupdatemod.core.I7MEConfig;
-import i7meupdatemod.core.ResourcePack;
-import i7meupdatemod.core.ResourcePackConverter;
-import i7meupdatemod.entity.GameAssetDetail;
-import i7meupdatemod.util.FileUtil;
-import i7meupdatemod.util.Log;
+import i18nupdatemod.core.GameConfig;
+import i18nupdatemod.core.I18nConfig;
+import i18nupdatemod.core.ResourcePack;
+import i18nupdatemod.core.ResourcePackConverter;
+import i18nupdatemod.entity.GameAssetDetail;
+import i18nupdatemod.util.FileUtil;
+import i18nupdatemod.util.Log;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,19 +18,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class I7MEUpdateMod {
-    public static final String MOD_ID = "i7meupdatemod";
+public class I18nUpdateMod {
+    public static final String MOD_ID = "i18nupdatemod";
     public static String MOD_VERSION;
 
     public static final Gson GSON = new Gson();
 
     public static void init(Path minecraftPath, String minecraftVersion, String loader) {
-        try (InputStream is = I7MEConfig.class.getResourceAsStream("/i7meMetaData.json")) {
+        try (InputStream is = I18nConfig.class.getResourceAsStream("/i18nMetaData.json")) {
             MOD_VERSION = GSON.fromJson(new InputStreamReader(is), JsonObject.class).get("version").getAsString();
         } catch (Exception e) {
             Log.warning("Error getting version: " + e);
         }
-        Log.info(String.format("I7MEUpdate Mod %s is loaded in %s with %s", MOD_VERSION, minecraftVersion, loader));
+        Log.info(String.format("I18nUpdate Mod %s is loaded in %s with %s", MOD_VERSION, minecraftVersion, loader));
         Log.debug(String.format("Minecraft path: %s", minecraftPath));
         String userHome = System.getProperty("user.home");
         if (userHome.equals("null")) {
@@ -41,13 +40,13 @@ public class I7MEUpdateMod {
 
         try {
             Class.forName("com.netease.mc.mod.network.common.Library");
-            Log.warning("I7MEUpdateMod will get resource pack from Internet, whose content is uncontrolled.");
+            Log.warning("I18nUpdateMod will get resource pack from Internet, whose content is uncontrolled.");
             Log.warning("This behavior contraries to Netease Minecraft developer content review rule: " +
                     "forbidden the content in game not match the content for reviewing.");
-            Log.warning("To follow this rule, I7MEUpdateMod won't download any thing.");
-            Log.warning("I7MEUpdateMod会从互联网获取内容不可控的资源包。");
+            Log.warning("To follow this rule, I18nUpdateMod won't download any thing.");
+            Log.warning("I18nUpdateMod会从互联网获取内容不可控的资源包。");
             Log.warning("这一行为违背了网易我的世界「开发者内容审核制度」：禁止上传与提审内容不一致的游戏内容。");
-            Log.warning("为了遵循这一制度，I7MEUpdateMod不会下载任何内容。");
+            Log.warning("为了遵循这一制度，I18nUpdateMod不会下载任何内容。");
             return;
         } catch (ClassNotFoundException ignored) {
         }
@@ -58,7 +57,7 @@ public class I7MEUpdateMod {
 
         try {
             //Get asset
-            GameAssetDetail assets = I7MEConfig.getAssetDetail(minecraftVersion, loader);
+            GameAssetDetail assets = I18nConfig.getAssetDetail(minecraftVersion, loader);
 
             //Update resource pack
             List<ResourcePack> languagePacks = new ArrayList<>();

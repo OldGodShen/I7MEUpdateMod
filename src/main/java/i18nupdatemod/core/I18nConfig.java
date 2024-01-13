@@ -1,36 +1,35 @@
-package i7meupdatemod.core;
+package i18nupdatemod.core;
 
 import com.google.gson.Gson;
-
-import i7meupdatemod.entity.AssetMetaData;
-import i7meupdatemod.entity.GameAssetDetail;
-import i7meupdatemod.entity.GameMetaData;
-import i7meupdatemod.entity.I7MEMetaData;
-import i7meupdatemod.util.Log;
-import i7meupdatemod.util.Version;
-import i7meupdatemod.util.VersionRange;
+import i18nupdatemod.entity.AssetMetaData;
+import i18nupdatemod.entity.GameAssetDetail;
+import i18nupdatemod.entity.GameMetaData;
+import i18nupdatemod.entity.I18nMetaData;
+import i18nupdatemod.util.Log;
+import i18nupdatemod.util.Version;
+import i18nupdatemod.util.VersionRange;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class I7MEConfig {
+public class I18nConfig {
     /**
      * <a href="https://github.com/CFPAOrg/Minecraft-Mod-Language-Package">CFPAOrg/Minecraft-Mod-Language-Package</a>
      */
     private static final String CFPA_ASSET_ROOT = "http://43.248.184.175:26009/generated.zip";
     private static final Gson GSON = new Gson();
-    private static I7MEMetaData i7meMetaData;
+    private static I18nMetaData i18nMetaData;
 
     static {
         init();
     }
 
     private static void init() {
-        try (InputStream is = I7MEConfig.class.getResourceAsStream("/i7meMetaData.json")) {
+        try (InputStream is = I18nConfig.class.getResourceAsStream("/i18nMetaData.json")) {
             if (is != null) {
-                i7meMetaData = GSON.fromJson(new InputStreamReader(is), I7MEMetaData.class);
+                i18nMetaData = GSON.fromJson(new InputStreamReader(is), I18nMetaData.class);
             } else {
                 Log.warning("Error getting index: is is null");
             }
@@ -41,14 +40,14 @@ public class I7MEConfig {
 
     private static GameMetaData getGameMetaData(String minecraftVersion) {
         Version version = Version.from(minecraftVersion);
-        return i7meMetaData.games.stream().filter(it -> {
+        return i18nMetaData.games.stream().filter(it -> {
             VersionRange range = new VersionRange(it.gameVersions);
             return range.contains(version);
         }).findFirst().orElseThrow(IllegalStateException::new);
     }
 
     private static AssetMetaData getAssetMetaData(String minecraftVersion, String loader) {
-        List<AssetMetaData> current = i7meMetaData.assets.stream()
+        List<AssetMetaData> current = i18nMetaData.assets.stream()
                 .filter(it -> it.targetVersion.equals(minecraftVersion))
                 .collect(Collectors.toList());
         return current.stream()

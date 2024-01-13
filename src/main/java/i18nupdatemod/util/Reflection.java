@@ -1,4 +1,4 @@
-package i7meupdatemod.util;
+package i18nupdatemod.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

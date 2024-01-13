@@ -1,4 +1,4 @@
-package i7meupdatemod.util;
+package i18nupdatemod.util;
 
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +13,7 @@ public class Log {
     private static Writer fileWriter;
 
     public static void setMinecraftLogFile(Path minecraftDir) {
-        setLogFile(minecraftDir.resolve("logs/I7MEUpdateMod.log"));
+        setLogFile(minecraftDir.resolve("logs/I18nUpdateMod.log"));
     }
 
     public static void setLogFile(Path path) {
@@ -48,13 +48,6 @@ public class Log {
             } catch (Exception e) {
                 System.err.printf("Error writing log: %s%n\r\n", e);
             }
-        }
-        switch (level.out) {
-            case STD_OUT:
-                System.out.print(out);
-                return;
-            case STD_ERR:
-                System.err.print(out);
         }
     }
 

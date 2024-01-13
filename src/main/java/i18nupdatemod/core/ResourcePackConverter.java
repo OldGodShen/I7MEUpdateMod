@@ -1,11 +1,9 @@
-package i7meupdatemod.core;
+package i18nupdatemod.core;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import i7meupdatemod.util.FileUtil;
-import i7meupdatemod.util.Log;
-
+import i18nupdatemod.util.FileUtil;
+import i18nupdatemod.util.Log;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
@@ -85,7 +83,7 @@ public class ResourcePackConverter {
 
     private static class PackMeta {
         Pack pack;
-
+        @SuppressWarnings("unused")
         private static class Pack {
             int pack_format;
             String description;

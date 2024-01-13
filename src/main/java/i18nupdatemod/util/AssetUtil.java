@@ -1,4 +1,4 @@
-package i7meupdatemod.util;
+package i18nupdatemod.util;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

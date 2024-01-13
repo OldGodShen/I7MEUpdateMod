@@ -1,10 +1,8 @@
-package i7meupdatemod.core;
+package i18nupdatemod.core;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import i7meupdatemod.util.Log;
-
+import i18nupdatemod.util.Log;
 import org.apache.commons.io.FileUtils;
 
 import java.lang.reflect.Type;

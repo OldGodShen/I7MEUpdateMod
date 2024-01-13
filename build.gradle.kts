@@ -5,7 +5,7 @@ plugins {
     id("io.github.CDAGaming.cursegradle") version "1.6.1"
 }
 
-group = "i7meupdatemod"
+group = "i18nupdatemod"
 version = project.properties["version"].toString() + if ("false" == System.getenv("IS_SNAPSHOT")) "" else "-SNAPSHOT"
 
 java {
@@ -16,9 +16,9 @@ java {
 tasks.shadowJar {
     manifest {
         attributes(
-            "TweakClass" to "i7meupdatemod.launchwrapper.LaunchWrapperTweaker",
+            "TweakClass" to "i18nupdatemod.launchwrapper.LaunchWrapperTweaker",
             "TweakOrder" to 33,
-            "Automatic-Module-Name" to "i7meupdatemod",
+            "Automatic-Module-Name" to "i18nupdatemod",
         )
     }
     minimize()
@@ -76,7 +76,7 @@ modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set("PWERr14M")
     versionNumber.set("${project.version}")
-    versionName.set("I7MEUpdateMod ${project.version}")
+    versionName.set("I18nUpdateMod ${project.version}")
     versionType.set("release")
     uploadFile.set(tasks["shadowJar"])
     gameVersions.set(supportMinecraftVersions)
@@ -93,7 +93,7 @@ curseforge {
         id = "297404"
         releaseType = "release"
         mainArtifact(tasks["shadowJar"]) {
-            this.displayName = "I7MEUpdateMod ${project.version}"
+            this.displayName = "I18nUpdateMod ${project.version}"
         }
         gameVersionStrings.addAll(supportMinecraftVersions)
         gameVersionStrings.addAll(curseForgeSpecialVersions)

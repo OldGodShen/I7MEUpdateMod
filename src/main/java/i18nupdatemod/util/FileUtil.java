@@ -1,4 +1,4 @@
-package i7meupdatemod.util;
+package i18nupdatemod.util;
 
 import java.io.IOException;
 import java.nio.file.Files;

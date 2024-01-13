@@ -1,4 +1,4 @@
-package i7meupdatemod.util;
+package i18nupdatemod.util;
 
 import com.google.archivepatcher.applier.bsdiff.BsPatch;
 
