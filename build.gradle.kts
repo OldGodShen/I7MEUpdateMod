@@ -69,34 +69,3 @@ tasks.processResources {
         )
     }
 }
-
-val supportMinecraftVersions = project.properties["minecraft"].toString().split(",")
-
-modrinth {
-    token.set(System.getenv("MODRINTH_TOKEN"))
-    projectId.set("PWERr14M")
-    versionNumber.set("${project.version}")
-    versionName.set("I7MEUpdateMod ${project.version}")
-    versionType.set("release")
-    uploadFile.set(tasks["shadowJar"])
-    gameVersions.set(supportMinecraftVersions)
-    loaders.set(listOf("fabric", "forge", "quilt"))
-    syncBodyFrom.set(rootProject.file("README.md").readText())
-    changelog.set(System.getenv("CHANGE_LOG"))
-}
-
-val curseForgeSpecialVersions = project.properties["curseforge"].toString().split(",")
-
-curseforge {
-    apiKey = if (System.getenv("CURSE_TOKEN") != null) System.getenv("CURSE_TOKEN") else "dummy"
-    project {
-        id = "297404"
-        releaseType = "release"
-        mainArtifact(tasks["shadowJar"]) {
-            this.displayName = "I7MEUpdateMod ${project.version}"
-        }
-        gameVersionStrings.addAll(supportMinecraftVersions)
-        gameVersionStrings.addAll(curseForgeSpecialVersions)
-        changelog = if (System.getenv("CHANGE_LOG") != null) System.getenv("CHANGE_LOG") else "No change log"
-    }
-}
