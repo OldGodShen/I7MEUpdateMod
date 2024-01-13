@@ -61,27 +61,27 @@ public class I7MEUpdateMod {
             GameAssetDetail assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
 
             //Update resource pack
-            List<ResourcePack> languagePacks = new ArrayList<>();
+            List<ResourcePack> i7mePacks = new ArrayList<>();
             boolean convertNotNeed = assets.downloads.size() == 1 && assets.downloads.get(0).targetVersion.equals(minecraftVersion);
             String applyFileName = assets.downloads.get(0).fileName;
             for (GameAssetDetail.AssetDownloadDetail it : assets.downloads) {
                 FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, it.targetVersion));
-                ResourcePack languagePack = new ResourcePack(it.fileName, convertNotNeed);
-                languagePack.checkUpdate(it.fileUrl);
-                languagePacks.add(languagePack);
+                ResourcePack i7mePack = new ResourcePack(it.fileName, convertNotNeed);
+                i7mePack.checkUpdate(it.fileUrl);
+                i7mePacks.add(i7mePack);
             }
 
             //Convert resourcepack
             if (!convertNotNeed) {
                 FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, minecraftVersion));
                 applyFileName = assets.covertFileName;
-                ResourcePackConverter converter = new ResourcePackConverter(languagePacks, applyFileName);
+                ResourcePackConverter converter = new ResourcePackConverter(i7mePacks, applyFileName);
                 converter.convert(assets.covertPackFormat, getResourcePackDescription(assets.downloads));
             }
 
             //Apply resource pack
             GameConfig config = new GameConfig(minecraftPath.resolve("options.txt"));
-            config.addResourcePack("Minecraft-Mod-Language-Modpack",
+            config.addResourcePack("摸鱼人生材质包",
                     (minecraftMajorVersion <= 12 ? "" : "file/") + applyFileName);
             config.writeToFile();
         } catch (Exception e) {

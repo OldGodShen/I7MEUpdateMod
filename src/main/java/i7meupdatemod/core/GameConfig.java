@@ -51,6 +51,6 @@ public class GameConfig {
         resourcePacks.add(resourcePack);
         configs.put("resourcePacks", GSON.toJson(resourcePacks));
         Log.info(String.format("Resource Packs: %s", configs.get("resourcePacks")));
-//        configs.put("lang", "zh_cn");
+        configs.put("lang", "zh_cn");
     }
 }
