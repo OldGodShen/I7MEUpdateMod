@@ -12,7 +12,7 @@ import i7meupdatemod.util.AssetUtil;
 import i7meupdatemod.util.FileUtil;
 import i7meupdatemod.util.Log;
 
-public class ResourcePack {
+public class I7ResourcePack {
     /**
      * Limit update check frequency
      */
@@ -21,7 +21,7 @@ public class ResourcePack {
     private final Path tmpFilePath;
     private final boolean saveToGame;
 
-    public ResourcePack(String filename, boolean saveToGame) {
+    public I7ResourcePack(String filename, boolean saveToGame) {
         //If target version is not current version, not save
         this.saveToGame = saveToGame;
         this.filename = filename;
@@ -35,11 +35,11 @@ public class ResourcePack {
         }
     }
 
-    public void checkUpdate(String fileUrl) throws IOException, URISyntaxException, NoSuchAlgorithmException {
-        downloadFull(fileUrl);
+    public void I7checkUpdate(String fileUrl) throws IOException, URISyntaxException, NoSuchAlgorithmException {
+        I7downloadFull(fileUrl);
     }
 
-    private void downloadFull(String fileUrl) throws IOException {
+    private void I7downloadFull(String fileUrl) throws IOException {
         try {
             Path downloadTmp = FileUtil.getTemporaryPath(filename + ".tmp");
             AssetUtil.download(fileUrl, downloadTmp);
@@ -54,11 +54,11 @@ public class ResourcePack {
         FileUtil.syncTmpFile(filePath, tmpFilePath, saveToGame);
     }
 
-    public Path getTmpFilePath() {
+    public Path I7getTmpFilePath() {
         return tmpFilePath;
     }
 
-    public String getFilename() {
+    public String I7getFilename() {
         return filename;
     }
 }

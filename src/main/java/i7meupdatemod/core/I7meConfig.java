@@ -2,9 +2,9 @@ package i7meupdatemod.core;
 
 import com.google.gson.Gson;
 
-import i7meupdatemod.entity.AssetMetaData;
-import i7meupdatemod.entity.GameAssetDetail;
-import i7meupdatemod.entity.GameMetaData;
+import i7meupdatemod.entity.I7AssetMetaData;
+import i7meupdatemod.entity.I7GameAssetDetail;
+import i7meupdatemod.entity.I7GameMetaData;
 import i7meupdatemod.entity.I7meMetaData;
 import i7meupdatemod.util.Log;
 import i7meupdatemod.util.Version;
@@ -36,7 +36,7 @@ public class I7meConfig {
         }
     }
 
-    private static GameMetaData getGameMetaData(String minecraftVersion) {
+    private static I7GameMetaData getGameMetaData(String minecraftVersion) {
         Version version = Version.from(minecraftVersion);
         return i7meMetaData.games.stream().filter(it -> {
             VersionRange range = new VersionRange(it.gameVersions);
@@ -44,20 +44,20 @@ public class I7meConfig {
         }).findFirst().orElseThrow(IllegalStateException::new);
     }
 
-    private static AssetMetaData getAssetMetaData(String minecraftVersion, String loader) {
-        List<AssetMetaData> current = i7meMetaData.assets.stream()
+    private static I7AssetMetaData getAssetMetaData(String minecraftVersion, String loader) {
+        List<I7AssetMetaData> current = i7meMetaData.assets.stream()
                 .filter(it -> it.targetVersion.equals(minecraftVersion))
                 .collect(Collectors.toList());
         return current.stream()
                 .filter(it -> it.loader.equalsIgnoreCase(loader)).findFirst().orElseGet(() -> current.get(0));
     }
 
-    public static GameAssetDetail getAssetDetail(String minecraftVersion, String loader) {
-        GameMetaData convert = getGameMetaData(minecraftVersion);
-        GameAssetDetail ret = new GameAssetDetail();
+    public static I7GameAssetDetail getAssetDetail(String minecraftVersion, String loader) {
+        I7GameMetaData convert = getGameMetaData(minecraftVersion);
+        I7GameAssetDetail ret = new I7GameAssetDetail();
 
         ret.downloads = convert.convertFrom.stream().map(it->getAssetMetaData(it,loader)).map(it -> {
-            GameAssetDetail.AssetDownloadDetail adi = new GameAssetDetail.AssetDownloadDetail();
+            I7GameAssetDetail.AssetDownloadDetail adi = new I7GameAssetDetail.AssetDownloadDetail();
             adi.fileName = it.filename;
             adi.fileUrl = I7ME_RES;
             adi.targetVersion = it.targetVersion;

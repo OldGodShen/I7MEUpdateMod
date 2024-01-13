@@ -22,19 +22,19 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
-public class ResourcePackConverter {
+public class I7ResourcePackConverter {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private final List<Path> sourcePath;
     private final Path filePath;
     private final Path tmpFilePath;
 
-    public ResourcePackConverter(List<ResourcePack> resourcePack, String filename) {
-        this.sourcePath = resourcePack.stream().map(ResourcePack::getTmpFilePath).collect(Collectors.toList());
+    public I7ResourcePackConverter(List<I7ResourcePack> resourcePack, String filename) {
+        this.sourcePath = resourcePack.stream().map(I7ResourcePack::I7getTmpFilePath).collect(Collectors.toList());
         this.filePath = FileUtil.getResourcePackPath(filename);
         this.tmpFilePath = FileUtil.getTemporaryPath(filename);
     }
 
-    public void convert(int packFormat, String description) throws Exception {
+    public void I7convert(int packFormat, String description) throws Exception {
         Set<String> fileList = new HashSet<>();
         try (ZipOutputStream zos = new ZipOutputStream(
                 Files.newOutputStream(tmpFilePath),

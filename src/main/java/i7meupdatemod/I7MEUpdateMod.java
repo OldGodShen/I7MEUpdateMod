@@ -3,11 +3,11 @@ package i7meupdatemod;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import i7meupdatemod.core.GameConfig;
+import i7meupdatemod.core.I7GameConfig;
 import i7meupdatemod.core.I7meConfig;
-import i7meupdatemod.core.ResourcePack;
-import i7meupdatemod.core.ResourcePackConverter;
-import i7meupdatemod.entity.GameAssetDetail;
+import i7meupdatemod.core.I7ResourcePack;
+import i7meupdatemod.core.I7ResourcePackConverter;
+import i7meupdatemod.entity.I7GameAssetDetail;
 import i7meupdatemod.util.FileUtil;
 import i7meupdatemod.util.Log;
 
@@ -57,39 +57,39 @@ public class I7MEUpdateMod {
 
         try {
             //Get asset
-            GameAssetDetail assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
+            I7GameAssetDetail I7assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
 
             //Update resource pack
-            List<ResourcePack> i7mePacks = new ArrayList<>();
-            boolean convertNotNeed = assets.downloads.size() == 1 && assets.downloads.get(0).targetVersion.equals(minecraftVersion);
-            String applyFileName = assets.downloads.get(0).fileName;
-            for (GameAssetDetail.AssetDownloadDetail it : assets.downloads) {
+            List<I7ResourcePack> i7mePacks = new ArrayList<>();
+            boolean convertNotNeed = I7assets.downloads.size() == 1 && I7assets.downloads.get(0).targetVersion.equals(minecraftVersion);
+            String applyFileName = I7assets.downloads.get(0).fileName;
+            for (I7GameAssetDetail.AssetDownloadDetail it : I7assets.downloads) {
                 FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, it.targetVersion));
-                ResourcePack i7mePack = new ResourcePack(it.fileName, convertNotNeed);
-                i7mePack.checkUpdate(it.fileUrl);
+                I7ResourcePack i7mePack = new I7ResourcePack(it.fileName, convertNotNeed);
+                i7mePack.I7checkUpdate(it.fileUrl);
                 i7mePacks.add(i7mePack);
             }
 
             //Convert resourcepack
             if (!convertNotNeed) {
                 FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, minecraftVersion));
-                applyFileName = assets.covertFileName;
-                ResourcePackConverter converter = new ResourcePackConverter(i7mePacks, applyFileName);
-                converter.convert(assets.covertPackFormat, getResourcePackDescription(assets.downloads));
+                applyFileName = I7assets.covertFileName;
+                I7ResourcePackConverter converter = new I7ResourcePackConverter(i7mePacks, applyFileName);
+                converter.I7convert(I7assets.covertPackFormat, getResourcePackDescription(I7assets.downloads));
             }
 
             //Apply resource pack
-            GameConfig config = new GameConfig(minecraftPath.resolve("options.txt"));
-            config.addResourcePack("摸鱼人生材质包",
+            I7GameConfig I7config = new I7GameConfig(minecraftPath.resolve("options.txt"));
+            I7config.I7addResourcePack("摸鱼人生材质包",
                     (minecraftMajorVersion <= 12 ? "" : "file/") + applyFileName);
-            config.writeToFile();
+            I7config.I7writeToFile();
         } catch (Exception e) {
             Log.warning(String.format("Failed to update resource pack: %s", e));
 //            e.printStackTrace();
         }
     }
 
-    private static String getResourcePackDescription(List<GameAssetDetail.AssetDownloadDetail> downloads) {
+    private static String getResourcePackDescription(List<I7GameAssetDetail.AssetDownloadDetail> downloads) {
         return String.format("该包由摸鱼人生服务器提供",
                         downloads.get(0).targetVersion);
 

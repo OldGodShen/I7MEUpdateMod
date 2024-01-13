@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class GameConfig {
+public class I7GameConfig {
     private static final Gson GSON = new Gson();
     private static final Type STRING_LIST_TYPE = new TypeToken<List<String>>() {
     }.getType();
     protected Map<String, String> configs = new LinkedHashMap<>();
     private final Path configFile;
 
-    public GameConfig(Path configFile) throws Exception {
+    public I7GameConfig(Path configFile) throws Exception {
         this.configFile = configFile;
         if (!Files.exists(configFile)) {
             return;
@@ -34,12 +34,12 @@ public class GameConfig {
                 .collect(Collectors.toMap(it -> it[0], it -> it[1], (a, b) -> a, LinkedHashMap::new));
     }
 
-    public void writeToFile() throws Exception {
+    public void I7writeToFile() throws Exception {
         FileUtils.writeLines(configFile.toFile(), "UTF-8", configs.entrySet().stream()
                 .map(it -> it.getKey() + ":" + it.getValue()).collect(Collectors.toList()));
     }
 
-    public void addResourcePack(String baseName, String resourcePack) {
+    public void I7addResourcePack(String baseName, String resourcePack) {
         List<String> resourcePacks = GSON.fromJson(
                 configs.computeIfAbsent("resourcePacks", it -> "[]"), STRING_LIST_TYPE);
         resourcePacks.add(resourcePack);
