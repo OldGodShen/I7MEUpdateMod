@@ -42,9 +42,9 @@ jobs:
           path: build/libs
       - 
         name: 🧧 Create GitHub Release
-        continue-on-error: true
+        continue-on-error: false
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v0.1
-          files: ${{github.workspace}}/build/libs/I7MEUpdateMod-0.1.2-all.jar
+          tag_name: v${{ github.run_number }}
+          files: build/libs/I7MEUpdateMod-0.1.2-all.jar
           generate_release_notes: true
