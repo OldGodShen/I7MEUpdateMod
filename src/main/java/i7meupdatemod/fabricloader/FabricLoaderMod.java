@@ -5,7 +5,7 @@ import net.fabricmc.loader.api.FabricLoader;
 
 import java.nio.file.Path;
 
-import i7meupdatemod.I18nUpdateMod;
+import i7meupdatemod.I7MEUpdateMod;
 import i7meupdatemod.util.Log;
 import i7meupdatemod.util.Reflection;
 
@@ -21,7 +21,7 @@ public class FabricLoaderMod implements ClientModInitializer {
             Log.warning("Minecraft version not found");
             return;
         }
-        I18nUpdateMod.init(gameDir, mcVersion, "Fabric");
+        I7MEUpdateMod.init(gameDir, mcVersion, "Fabric");
     }
 
     private String getMcVersion() {

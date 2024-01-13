@@ -6,7 +6,7 @@ import net.minecraft.launchwrapper.LaunchClassLoader;
 import java.io.File;
 import java.util.List;
 
-import i7meupdatemod.I18nUpdateMod;
+import i7meupdatemod.I7MEUpdateMod;
 import i7meupdatemod.util.Log;
 import i7meupdatemod.util.Reflection;
 
@@ -21,7 +21,7 @@ public class LaunchWrapperTweaker implements ITweaker {
             Log.warning("Failed to get minecraft version.");
             return;
         }
-        I18nUpdateMod.init(gameDir.toPath(), mcVersion, "Forge");
+        I7MEUpdateMod.init(gameDir.toPath(), mcVersion, "Forge");
     }
 
     @Override

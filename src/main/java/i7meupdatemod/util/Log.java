@@ -13,7 +13,7 @@ public class Log {
     private static Writer fileWriter;
 
     public static void setMinecraftLogFile(Path minecraftDir) {
-        setLogFile(minecraftDir.resolve("logs/I18nUpdateMod.log"));
+        setLogFile(minecraftDir.resolve("logs/I7MEUpdateMod.log"));
     }
 
     public static void setLogFile(Path path) {

@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import i7meupdatemod.entity.AssetMetaData;
 import i7meupdatemod.entity.GameAssetDetail;
 import i7meupdatemod.entity.GameMetaData;
-import i7meupdatemod.entity.I18nMetaData;
+import i7meupdatemod.entity.I7MEMetaData;
 import i7meupdatemod.util.Log;
 import i7meupdatemod.util.Version;
 import i7meupdatemod.util.VersionRange;
@@ -15,22 +15,22 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class I18nConfig {
+public class I7MEConfig {
     /**
      * <a href="https://github.com/CFPAOrg/Minecraft-Mod-Language-Package">CFPAOrg/Minecraft-Mod-Language-Package</a>
      */
     private static final String CFPA_ASSET_ROOT = "http://43.248.184.175:26009/generated.zip";
     private static final Gson GSON = new Gson();
-    private static I18nMetaData i18nMetaData;
+    private static I7MEMetaData i7meMetaData;
 
     static {
         init();
     }
 
     private static void init() {
-        try (InputStream is = I18nConfig.class.getResourceAsStream("/i18nMetaData.json")) {
+        try (InputStream is = I7MEConfig.class.getResourceAsStream("/i7meMetaData.json")) {
             if (is != null) {
-                i18nMetaData = GSON.fromJson(new InputStreamReader(is), I18nMetaData.class);
+                i7meMetaData = GSON.fromJson(new InputStreamReader(is), I7MEMetaData.class);
             } else {
                 Log.warning("Error getting index: is is null");
             }
@@ -41,14 +41,14 @@ public class I18nConfig {
 
     private static GameMetaData getGameMetaData(String minecraftVersion) {
         Version version = Version.from(minecraftVersion);
-        return i18nMetaData.games.stream().filter(it -> {
+        return i7meMetaData.games.stream().filter(it -> {
             VersionRange range = new VersionRange(it.gameVersions);
             return range.contains(version);
         }).findFirst().orElseThrow(IllegalStateException::new);
     }
 
     private static AssetMetaData getAssetMetaData(String minecraftVersion, String loader) {
-        List<AssetMetaData> current = i18nMetaData.assets.stream()
+        List<AssetMetaData> current = i7meMetaData.assets.stream()
                 .filter(it -> it.targetVersion.equals(minecraftVersion))
                 .collect(Collectors.toList());
         return current.stream()
