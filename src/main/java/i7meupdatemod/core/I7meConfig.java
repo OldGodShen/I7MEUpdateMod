@@ -58,7 +58,7 @@ public class I7meConfig {
 
         ret.downloads = convert.convertFrom.stream().map(it->getAssetMetaData(it,loader)).map(it -> {
             I7GameAssetDetail.AssetDownloadDetail adi = new I7GameAssetDetail.AssetDownloadDetail();
-            adi.fileName = it.filename;
+            adi.fileName = "摸鱼人生材质包.zip";
             adi.fileUrl = I7ME_RES;
             adi.targetVersion = it.targetVersion;
             return adi;

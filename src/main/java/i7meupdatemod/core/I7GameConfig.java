@@ -35,8 +35,9 @@ public class I7GameConfig {
     }
 
     public void I7writeToFile() throws Exception {
-        FileUtils.writeLines(configFile.toFile(), "UTF-8", configs.entrySet().stream()
-                .map(it -> it.getKey() + ":" + it.getValue()).collect(Collectors.toList()));
+        Files.write(configFile, configs.entrySet().stream()
+                .map(it -> it.getKey() + ":" + it.getValue())
+                .collect(Collectors.toList()), StandardCharsets.UTF_8);
     }
 
     public void I7addResourcePack(String baseName, String resourcePack) {

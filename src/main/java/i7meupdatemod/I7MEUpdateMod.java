@@ -56,42 +56,26 @@ public class I7MEUpdateMod {
         int minecraftMajorVersion = Integer.parseInt(minecraftVersion.split("\\.")[1]);
 
         try {
-            //Get asset
+            // 获取资源
             I7GameAssetDetail I7assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
 
-            //Update resource pack
+            // 更新资源包
             List<I7ResourcePack> i7mePacks = new ArrayList<>();
-            boolean convertNotNeed = I7assets.downloads.size() == 1 && I7assets.downloads.get(0).targetVersion.equals(minecraftVersion);
-            String applyFileName = I7assets.downloads.get(0).fileName;
+            String applyFileName = "摸鱼人生材质包.zip";
             for (I7GameAssetDetail.AssetDownloadDetail it : I7assets.downloads) {
                 FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, it.targetVersion));
-                I7ResourcePack i7mePack = new I7ResourcePack(it.fileName, convertNotNeed);
+                I7ResourcePack i7mePack = new I7ResourcePack(it.fileName, true);
                 i7mePack.I7checkUpdate(it.fileUrl);
                 i7mePacks.add(i7mePack);
             }
 
-            //Convert resourcepack
-            if (!convertNotNeed) {
-                FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, minecraftVersion));
-                applyFileName = I7assets.covertFileName;
-                I7ResourcePackConverter converter = new I7ResourcePackConverter(i7mePacks, applyFileName);
-                converter.I7convert(I7assets.covertPackFormat, getResourcePackDescription(I7assets.downloads));
-            }
-
-            //Apply resource pack
+            // 应用资源包
             I7GameConfig I7config = new I7GameConfig(minecraftPath.resolve("options.txt"));
             I7config.I7addResourcePack("摸鱼人生材质包",
                     (minecraftMajorVersion <= 12 ? "" : "file/") + applyFileName);
             I7config.I7writeToFile();
         } catch (Exception e) {
-            Log.warning(String.format("Failed to update resource pack: %s", e));
-//            e.printStackTrace();
+            Log.warning(String.format("更新资源包失败：%s", e));
         }
-    }
-
-    private static String getResourcePackDescription(List<I7GameAssetDetail.AssetDownloadDetail> downloads) {
-        return String.format("该包由摸鱼人生服务器提供",
-                        downloads.get(0).targetVersion);
-
     }
 }

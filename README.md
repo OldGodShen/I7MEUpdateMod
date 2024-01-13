@@ -10,6 +10,9 @@
 
 本Mod基于「[自动汉化更新模组Ⅲ](https://github.com/CFPAOrg/I18nUpdateMod3)」用于自动下载、更新、应用「[摸鱼人生服务器材质包](http://43.248.184.175:26009/generated.zip)」，来避免「[ItemsAdder](https://www.spigotmc.org/resources/%E2%9C%A8itemsadder%E2%AD%90emotes-mobs-items-armors-hud-gui-emojis-blocks-wings-hats-liquids.73355)」在1.20.4切换子服时有时不能避免重复加载相同材质问题。
 
+## 已知问题
+- 与「[自动汉化更新模组Ⅲ](https://github.com/CFPAOrg/I18nUpdateMod3)」一起使用时会导致资源包合并，但是不会影响使用，目前没找到解决方案。
+
 ## 支持的版本
 - Minecraft：1.20.4
 - Mod加载器：MinecraftForge、NeoForge、Fabric、Quilt 都支持
