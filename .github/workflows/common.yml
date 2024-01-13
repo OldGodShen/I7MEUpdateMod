@@ -47,5 +47,5 @@ jobs:
         with:
           path: build/libs
           tag_name: v-${{ github.run_number }}
-          files: "I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar"
+          files: I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar
           generate_release_notes: true
