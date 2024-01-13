@@ -1,9 +1,4 @@
-package i18nupdatemod.core;
-
-import i18nupdatemod.util.AssetUtil;
-import i18nupdatemod.util.DigestUtil;
-import i18nupdatemod.util.FileUtil;
-import i18nupdatemod.util.Log;
+package i7meupdatemod.core;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,6 +8,11 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
+
+import i7meupdatemod.util.AssetUtil;
+import i7meupdatemod.util.DigestUtil;
+import i7meupdatemod.util.FileUtil;
+import i7meupdatemod.util.Log;
 
 public class ResourcePack {
     /**

@@ -1,14 +1,15 @@
-package i18nupdatemod;
+package i7meupdatemod;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import i18nupdatemod.core.GameConfig;
-import i18nupdatemod.core.I18nConfig;
-import i18nupdatemod.core.ResourcePack;
-import i18nupdatemod.core.ResourcePackConverter;
-import i18nupdatemod.entity.GameAssetDetail;
-import i18nupdatemod.util.FileUtil;
-import i18nupdatemod.util.Log;
+
+import i7meupdatemod.core.GameConfig;
+import i7meupdatemod.core.I18nConfig;
+import i7meupdatemod.core.ResourcePack;
+import i7meupdatemod.core.ResourcePackConverter;
+import i7meupdatemod.entity.GameAssetDetail;
+import i7meupdatemod.util.FileUtil;
+import i7meupdatemod.util.Log;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

@@ -1,12 +1,13 @@
-package i18nupdatemod.fabricloader;
+package i7meupdatemod.fabricloader;
 
-import i18nupdatemod.I18nUpdateMod;
-import i18nupdatemod.util.Log;
-import i18nupdatemod.util.Reflection;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.nio.file.Path;
+
+import i7meupdatemod.I18nUpdateMod;
+import i7meupdatemod.util.Log;
+import i7meupdatemod.util.Reflection;
 
 //1.14-latest
 public class FabricLoaderMod implements ClientModInitializer {

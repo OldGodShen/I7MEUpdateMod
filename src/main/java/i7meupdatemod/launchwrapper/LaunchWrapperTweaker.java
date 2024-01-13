@@ -1,13 +1,14 @@
-package i18nupdatemod.launchwrapper;
+package i7meupdatemod.launchwrapper;
 
-import i18nupdatemod.I18nUpdateMod;
-import i18nupdatemod.util.Log;
-import i18nupdatemod.util.Reflection;
 import net.minecraft.launchwrapper.ITweaker;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 
 import java.io.File;
 import java.util.List;
+
+import i7meupdatemod.I18nUpdateMod;
+import i7meupdatemod.util.Log;
+import i7meupdatemod.util.Reflection;
 
 //1.6-1.12.2
 public class LaunchWrapperTweaker implements ITweaker {

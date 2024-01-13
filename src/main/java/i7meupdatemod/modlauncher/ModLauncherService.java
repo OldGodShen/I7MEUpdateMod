@@ -1,4 +1,4 @@
-package i18nupdatemod.modlauncher;
+package i7meupdatemod.modlauncher;
 
 import com.google.gson.JsonObject;
 import cpw.mods.modlauncher.Launcher;
@@ -6,10 +6,13 @@ import cpw.mods.modlauncher.api.IEnvironment;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
 import cpw.mods.modlauncher.api.IncompatibleEnvironmentException;
-import i18nupdatemod.I18nUpdateMod;
-import i18nupdatemod.util.Log;
-import i18nupdatemod.util.Reflection;
+import i7meupdatemod.I18nUpdateMod;
+import i7meupdatemod.util.Log;
+import i7meupdatemod.util.Reflection;
+
 import org.jetbrains.annotations.NotNull;
+
+import static i7meupdatemod.I18nUpdateMod.GSON;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,8 +21,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-
-import static i18nupdatemod.I18nUpdateMod.GSON;
 
 //1.13-latest
 public class ModLauncherService implements ITransformationService {

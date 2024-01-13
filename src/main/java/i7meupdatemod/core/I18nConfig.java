@@ -1,13 +1,14 @@
-package i18nupdatemod.core;
+package i7meupdatemod.core;
 
 import com.google.gson.Gson;
-import i18nupdatemod.entity.AssetMetaData;
-import i18nupdatemod.entity.GameAssetDetail;
-import i18nupdatemod.entity.GameMetaData;
-import i18nupdatemod.entity.I18nMetaData;
-import i18nupdatemod.util.Log;
-import i18nupdatemod.util.Version;
-import i18nupdatemod.util.VersionRange;
+
+import i7meupdatemod.entity.AssetMetaData;
+import i7meupdatemod.entity.GameAssetDetail;
+import i7meupdatemod.entity.GameMetaData;
+import i7meupdatemod.entity.I18nMetaData;
+import i7meupdatemod.util.Log;
+import i7meupdatemod.util.Version;
+import i7meupdatemod.util.VersionRange;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

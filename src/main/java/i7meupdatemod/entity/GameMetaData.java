@@ -1,4 +1,4 @@
-package i18nupdatemod.entity;
+package i7meupdatemod.entity;
 
 import java.util.List;
 
