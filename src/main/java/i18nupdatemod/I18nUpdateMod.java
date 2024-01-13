@@ -40,13 +40,13 @@ public class I18nUpdateMod {
 
         try {
             Class.forName("com.netease.mc.mod.network.common.Library");
-            Log.warning("I18nUpdateMod will get resource pack from Internet, whose content is uncontrolled.");
+            Log.warning("T7MEUpdateMod will get resource pack from Internet, whose content is uncontrolled.");
             Log.warning("This behavior contraries to Netease Minecraft developer content review rule: " +
                     "forbidden the content in game not match the content for reviewing.");
-            Log.warning("To follow this rule, I18nUpdateMod won't download any thing.");
-            Log.warning("I18nUpdateMod会从互联网获取内容不可控的资源包。");
+            Log.warning("To follow this rule, T7MEUpdateMod won't download any thing.");
+            Log.warning("T7MEUpdateMod会从互联网获取内容不可控的资源包。");
             Log.warning("这一行为违背了网易我的世界「开发者内容审核制度」：禁止上传与提审内容不一致的游戏内容。");
-            Log.warning("为了遵循这一制度，I18nUpdateMod不会下载任何内容。");
+            Log.warning("为了遵循这一制度，T7MEUpdateMod不会下载任何内容。");
             return;
         } catch (ClassNotFoundException ignored) {
         }
