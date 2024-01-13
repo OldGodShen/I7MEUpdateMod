@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class I7meConfig {
     private static final String CFPA_ASSET_ROOT = "http://43.248.184.175:26009/generated.zip";
     private static final Gson GSON = new Gson();
-    private static I7meMetaData i18nMetaData;
+    private static I7meMetaData i7meMetaData;
 
     static {
         init();
@@ -27,7 +27,7 @@ public class I7meConfig {
     private static void init() {
         try (InputStream is = I7meConfig.class.getResourceAsStream("/i7meMetaData.json")) {
             if (is != null) {
-                i18nMetaData = GSON.fromJson(new InputStreamReader(is), I7meMetaData.class);
+                i7meMetaData = GSON.fromJson(new InputStreamReader(is), I7meMetaData.class);
             } else {
                 Log.warning("Error getting index: is is null");
             }
@@ -38,14 +38,14 @@ public class I7meConfig {
 
     private static GameMetaData getGameMetaData(String minecraftVersion) {
         Version version = Version.from(minecraftVersion);
-        return i18nMetaData.games.stream().filter(it -> {
+        return i7meMetaData.games.stream().filter(it -> {
             VersionRange range = new VersionRange(it.gameVersions);
             return range.contains(version);
         }).findFirst().orElseThrow(IllegalStateException::new);
     }
 
     private static AssetMetaData getAssetMetaData(String minecraftVersion, String loader) {
-        List<AssetMetaData> current = i18nMetaData.assets.stream()
+        List<AssetMetaData> current = i7meMetaData.assets.stream()
                 .filter(it -> it.targetVersion.equals(minecraftVersion))
                 .collect(Collectors.toList());
         return current.stream()

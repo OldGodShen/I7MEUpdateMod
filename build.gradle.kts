@@ -76,7 +76,7 @@ modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set("PWERr14M")
     versionNumber.set("${project.version}")
-    versionName.set("I18nUpdateMod ${project.version}")
+    versionName.set("I7MEUpdateMod ${project.version}")
     versionType.set("release")
     uploadFile.set(tasks["shadowJar"])
     gameVersions.set(supportMinecraftVersions)
@@ -93,7 +93,7 @@ curseforge {
         id = "297404"
         releaseType = "release"
         mainArtifact(tasks["shadowJar"]) {
-            this.displayName = "I18nUpdateMod ${project.version}"
+            this.displayName = "I7MEUpdateMod ${project.version}"
         }
         gameVersionStrings.addAll(supportMinecraftVersions)
         gameVersionStrings.addAll(curseForgeSpecialVersions)
