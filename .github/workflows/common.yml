@@ -35,7 +35,7 @@ jobs:
           IS_SNAPSHOT: ${{ inputs.is-snapshot }}
         run: |
           ./gradlew clean shadowJar --info --stacktrace
-          cp ./ ./build/libs/*.jar
+          cp ./build/libs/*.jar ./
       -
         uses: actions/upload-artifact@v3
         with:
