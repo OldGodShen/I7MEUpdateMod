@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class I7GameConfig {
+public class GameConfig {
     private static final Gson GSON = new Gson();
     private static final Type STRING_LIST_TYPE = new TypeToken<List<String>>() {
     }.getType();
     protected Map<String, String> configs = new LinkedHashMap<>();
     private final Path configFile;
 
-    public I7GameConfig(Path configFile) throws Exception {
+    public GameConfig(Path configFile) throws Exception {
         this.configFile = configFile;
         if (!Files.exists(configFile)) {
             return;

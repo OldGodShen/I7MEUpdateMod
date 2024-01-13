@@ -3,10 +3,10 @@ package i7meupdatemod;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import i7meupdatemod.core.I7GameConfig;
+import i7meupdatemod.core.GameConfig;
 import i7meupdatemod.core.I7meConfig;
-import i7meupdatemod.core.I7ResourcePack;
-import i7meupdatemod.entity.I7GameAssetDetail;
+import i7meupdatemod.core.ResourcePack;
+import i7meupdatemod.entity.GameAssetDetail;
 import i7meupdatemod.util.FileUtil;
 import i7meupdatemod.util.Log;
 
@@ -54,20 +54,20 @@ public class I7MEUpdateMod {
 
         try {
             // 获取资源
-            I7GameAssetDetail I7assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
+            GameAssetDetail I7assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
 
             // 更新资源包
-            List<I7ResourcePack> i7mePacks = new ArrayList<>();
+            List<ResourcePack> i7mePacks = new ArrayList<>();
             String applyFileName = "摸鱼人生材质包.zip";
-            for (I7GameAssetDetail.AssetDownloadDetail it : I7assets.downloads) {
+            for (GameAssetDetail.AssetDownloadDetail it : I7assets.downloads) {
                 FileUtil.setTemporaryDirPath(Paths.get(userHome, "." + MOD_ID, it.targetVersion));
-                I7ResourcePack i7mePack = new I7ResourcePack(it.fileName, true);
-                i7mePack.I7checkUpdate(it.fileUrl);
+                ResourcePack i7mePack = new ResourcePack(it.fileName, true);
+                i7mePack.checkUpdate(it.fileUrl);
                 i7mePacks.add(i7mePack);
             }
 
             // 应用资源包
-            I7GameConfig I7config = new I7GameConfig(minecraftPath.resolve("options.txt"));
+            GameConfig I7config = new GameConfig(minecraftPath.resolve("options.txt"));
             I7config.I7addResourcePack("file/" + applyFileName);
             I7config.I7addincompatibleResourcePack("file/" + applyFileName);
             I7config.I7writeToFile();

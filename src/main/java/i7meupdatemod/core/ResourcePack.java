@@ -12,7 +12,7 @@ import i7meupdatemod.util.AssetUtil;
 import i7meupdatemod.util.FileUtil;
 import i7meupdatemod.util.Log;
 
-public class I7ResourcePack {
+public class ResourcePack {
     /**
      * Limit update check frequency
      */
@@ -21,7 +21,7 @@ public class I7ResourcePack {
     private final Path tmpFilePath;
     private final boolean saveToGame;
 
-    public I7ResourcePack(String filename, boolean saveToGame) {
+    public ResourcePack(String filename, boolean saveToGame) {
         //If target version is not current version, not save
         this.saveToGame = saveToGame;
         this.filename = filename;
@@ -35,15 +35,15 @@ public class I7ResourcePack {
         }
     }
 
-    public void I7checkUpdate(String fileUrl) throws IOException, URISyntaxException, NoSuchAlgorithmException {
-        I7downloadFull(fileUrl);
+    public void checkUpdate(String fileUrl) throws IOException, URISyntaxException, NoSuchAlgorithmException {
+        downloadFull(fileUrl);
     }
 
-    private void I7downloadFull(String fileUrl) throws IOException {
+    private void downloadFull(String fileUrl) throws IOException {
         try {
-            Path downloadTmp = FileUtil.getTemporaryPath(filename + ".tmp");
-            AssetUtil.download(fileUrl, downloadTmp);
-            Files.move(downloadTmp, tmpFilePath, StandardCopyOption.REPLACE_EXISTING);
+            Path I7downloadTmp = FileUtil.getTemporaryPath(filename + ".i7tmp");
+            AssetUtil.download(fileUrl, I7downloadTmp);
+            Files.move(I7downloadTmp, tmpFilePath, StandardCopyOption.REPLACE_EXISTING);
             Log.debug(String.format("Updates temp file: %s", tmpFilePath));
         } catch (Exception e) {
             Log.warning("Error while downloading: %s", e);
@@ -54,11 +54,11 @@ public class I7ResourcePack {
         FileUtil.syncTmpFile(filePath, tmpFilePath, saveToGame);
     }
 
-    public Path I7getTmpFilePath() {
+    public Path getTmpFilePath() {
         return tmpFilePath;
     }
 
-    public String I7getFilename() {
+    public String getFilename() {
         return filename;
     }
 }
