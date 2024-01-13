@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class I7meConfig {
-    private static final String CFPA_ASSET_ROOT = "http://43.248.184.175:26009/generated.zip";
+    private static final String I7ME_RES = "http://43.248.184.175:26009/generated.zip";
     private static final Gson GSON = new Gson();
     private static I7meMetaData i7meMetaData;
 
@@ -59,7 +59,7 @@ public class I7meConfig {
         ret.downloads = convert.convertFrom.stream().map(it->getAssetMetaData(it,loader)).map(it -> {
             GameAssetDetail.AssetDownloadDetail adi = new GameAssetDetail.AssetDownloadDetail();
             adi.fileName = it.filename;
-            adi.fileUrl = CFPA_ASSET_ROOT;
+            adi.fileUrl = I7ME_RES;
             adi.targetVersion = it.targetVersion;
             return adi;
         }).collect(Collectors.toList());

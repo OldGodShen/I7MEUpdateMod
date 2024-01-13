@@ -17,7 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class I7MEUpdateMod {
     public static final String MOD_ID = "i7meupdatemod";
@@ -91,10 +90,7 @@ public class I7MEUpdateMod {
     }
 
     private static String getResourcePackDescription(List<GameAssetDetail.AssetDownloadDetail> downloads) {
-        return downloads.size() > 1 ?
-                String.format("该包由摸鱼人生服务提供",
-                        downloads.stream().map(it -> it.targetVersion).collect(Collectors.joining("和"))) :
-                String.format("该包对应的官方支持版本为\n作者：摸鱼人生服务器",
+        return String.format("该包由摸鱼人生服务器提供",
                         downloads.get(0).targetVersion);
 
     }
