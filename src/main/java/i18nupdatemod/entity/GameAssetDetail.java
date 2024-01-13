@@ -10,7 +10,6 @@ public class GameAssetDetail {
     public static class AssetDownloadDetail {
         public String fileName;
         public String fileUrl;
-        public String md5Url;
         public String targetVersion;
     }
 }
