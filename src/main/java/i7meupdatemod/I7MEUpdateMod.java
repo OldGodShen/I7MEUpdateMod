@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import i7meupdatemod.core.GameConfig;
-import i7meupdatemod.core.I18nConfig;
+import i7meupdatemod.core.I7meConfig;
 import i7meupdatemod.core.ResourcePack;
 import i7meupdatemod.core.ResourcePackConverter;
 import i7meupdatemod.entity.GameAssetDetail;
@@ -19,19 +19,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class I18nUpdateMod {
+public class I7MEUpdateMod {
     public static final String MOD_ID = "i7meupdatemod";
     public static String MOD_VERSION;
 
     public static final Gson GSON = new Gson();
 
     public static void init(Path minecraftPath, String minecraftVersion, String loader) {
-        try (InputStream is = I18nConfig.class.getResourceAsStream("/i7meMetaData.json")) {
+        try (InputStream is = I7meConfig.class.getResourceAsStream("/i7meMetaData.json")) {
             MOD_VERSION = GSON.fromJson(new InputStreamReader(is), JsonObject.class).get("version").getAsString();
         } catch (Exception e) {
             Log.warning("Error getting version: " + e);
         }
-        Log.info(String.format("I18nUpdate Mod %s is loaded in %s with %s", MOD_VERSION, minecraftVersion, loader));
+        Log.info(String.format("I7MEUpdateMod %s is loaded in %s with %s", MOD_VERSION, minecraftVersion, loader));
         Log.debug(String.format("Minecraft path: %s", minecraftPath));
         String userHome = System.getProperty("user.home");
         if (userHome.equals("null")) {
@@ -58,7 +58,7 @@ public class I18nUpdateMod {
 
         try {
             //Get asset
-            GameAssetDetail assets = I18nConfig.getAssetDetail(minecraftVersion, loader);
+            GameAssetDetail assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
 
             //Update resource pack
             List<ResourcePack> languagePacks = new ArrayList<>();

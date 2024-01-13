@@ -5,7 +5,7 @@ plugins {
     id("io.github.CDAGaming.cursegradle") version "1.6.1"
 }
 
-group = "i18nupdatemod"
+group = "i7meupdatemod"
 version = project.properties["version"].toString() + if ("false" == System.getenv("IS_SNAPSHOT")) "" else "-SNAPSHOT"
 
 java {
@@ -16,9 +16,9 @@ java {
 tasks.shadowJar {
     manifest {
         attributes(
-            "TweakClass" to "i18nupdatemod.launchwrapper.LaunchWrapperTweaker",
+            "TweakClass" to "i7meupdatemod.launchwrapper.LaunchWrapperTweaker",
             "TweakOrder" to 33,
-            "Automatic-Module-Name" to "i18nupdatemod",
+            "Automatic-Module-Name" to "i7meupdatemod",
         )
     }
     minimize()

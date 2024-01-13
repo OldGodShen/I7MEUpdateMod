@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import i7meupdatemod.entity.AssetMetaData;
 import i7meupdatemod.entity.GameAssetDetail;
 import i7meupdatemod.entity.GameMetaData;
-import i7meupdatemod.entity.I18nMetaData;
+import i7meupdatemod.entity.I7meMetaData;
 import i7meupdatemod.util.Log;
 import i7meupdatemod.util.Version;
 import i7meupdatemod.util.VersionRange;
@@ -15,22 +15,19 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class I18nConfig {
-    /**
-     * <a href="https://github.com/CFPAOrg/Minecraft-Mod-Language-Package">CFPAOrg/Minecraft-Mod-Language-Package</a>
-     */
+public class I7meConfig {
     private static final String CFPA_ASSET_ROOT = "http://43.248.184.175:26009/generated.zip";
     private static final Gson GSON = new Gson();
-    private static I18nMetaData i18nMetaData;
+    private static I7meMetaData i18nMetaData;
 
     static {
         init();
     }
 
     private static void init() {
-        try (InputStream is = I18nConfig.class.getResourceAsStream("/i7meMetaData.json")) {
+        try (InputStream is = I7meConfig.class.getResourceAsStream("/i7meMetaData.json")) {
             if (is != null) {
-                i18nMetaData = GSON.fromJson(new InputStreamReader(is), I18nMetaData.class);
+                i18nMetaData = GSON.fromJson(new InputStreamReader(is), I7meMetaData.class);
             } else {
                 Log.warning("Error getting index: is is null");
             }
