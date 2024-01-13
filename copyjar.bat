@@ -1,2 +1,2 @@
 @echo off
-copy .\build\libs\*.jar D:\HMCL\.minecraft\mods
+copy .\build\libs\*.jar D:\MC\.minecraft\mods

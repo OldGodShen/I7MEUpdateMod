@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "id": "i18nupdatemod",
+  "id": "i7meupdatemod",
   "version": "${version}",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "i18nupdatemod.fabricloader.FabricLoaderMod"
+      "i7meupdatemod.fabricloader.FabricLoaderMod"
     ]
   },
   "name": "I7MEUpdateMod",

@@ -83,7 +83,7 @@ public class ResourcePackConverter {
 
     private static class PackMeta {
         Pack pack;
-        @SuppressWarnings("unused")
+
         private static class Pack {
             int pack_format;
             String description;

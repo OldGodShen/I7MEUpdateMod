@@ -49,6 +49,13 @@ public class Log {
                 System.err.printf("Error writing log: %s%n\r\n", e);
             }
         }
+        switch (level.out) {
+            case STD_OUT:
+                System.out.print(out);
+                return;
+            case STD_ERR:
+                System.err.print(out);
+        }
     }
 
     public static void debug(String message) {

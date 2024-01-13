@@ -55,7 +55,6 @@ public class ModLauncherService implements ITransformationService {
     }
 
     @Override
-    @SuppressWarnings("rawtypes")
     public @NotNull List<ITransformer> transformers() {
         return Collections.emptyList();
     }
