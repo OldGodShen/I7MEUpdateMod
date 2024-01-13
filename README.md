@@ -1,4 +1,4 @@
-# 自动汉化更新模组Ⅲ
+# 自动摸鱼人生服务器材质包加载
 [![Version](https://img.shields.io/github/v/release/OldGodShen/I7MEUpdateMod?label=&logo=V&labelColor=E1F5FE&color=5D87BF&style=for-the-badge)](https://github.com/OldGodShen/I7MEUpdateMod/tags)
 [![License](https://img.shields.io/github/license/OldGodShen/I7MEUpdateMod?label=&logo=c&style=for-the-badge&color=A8B9CC&labelColor=455A64)](https://github.com/OldGodShen/I7MEUpdateMod/blob/main/LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/OldGodShen/I7MEUpdateMod/release.yml?style=for-the-badge&label=&logo=Gradle&labelColor=388E3C)](https://github.com/OldGodShen/I7MEUpdateMod/actions)
