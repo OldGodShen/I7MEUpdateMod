@@ -46,5 +46,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ inputs.type }}-${{ github.run_number }}
-          files: "build/libs/I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar"
+          files: "build/libs/I7MEUpdateMod-${{ github.run_number }}.jar"
           generate_release_notes: true
