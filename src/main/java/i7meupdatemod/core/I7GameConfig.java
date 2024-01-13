@@ -40,12 +40,18 @@ public class I7GameConfig {
                 .collect(Collectors.toList()), StandardCharsets.UTF_8);
     }
 
-    public void I7addResourcePack(String baseName, String resourcePack) {
+    public void I7addResourcePack(String resourcePack) {
         List<String> resourcePacks = GSON.fromJson(
                 configs.computeIfAbsent("resourcePacks", it -> "[]"), STRING_LIST_TYPE);
         resourcePacks.add(resourcePack);
         configs.put("resourcePacks", GSON.toJson(resourcePacks));
         Log.info(String.format("Resource Packs: %s", configs.get("resourcePacks")));
-        configs.put("lang", "zh_cn");
+    }
+    public void I7addincompatibleResourcePack(String resourcePack) {
+        List<String> resourcePacks = GSON.fromJson(
+                configs.computeIfAbsent("incompatibleResourcePacks", it -> "[]"), STRING_LIST_TYPE);
+        resourcePacks.add(resourcePack);
+        configs.put("incompatibleResourcePacks", GSON.toJson(resourcePacks));
+        Log.info(String.format("Resource Packs: %s", configs.get("incompatibleResourcePacks")));
     }
 }

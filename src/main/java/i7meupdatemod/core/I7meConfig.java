@@ -63,9 +63,6 @@ public class I7meConfig {
             adi.targetVersion = it.targetVersion;
             return adi;
         }).collect(Collectors.toList());
-        ret.covertPackFormat = convert.packFormat;
-        ret.covertFileName =
-                String.format("摸鱼人生材质包.zip", minecraftVersion);
         return ret;
     }
 }

@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 import i7meupdatemod.core.I7GameConfig;
 import i7meupdatemod.core.I7meConfig;
 import i7meupdatemod.core.I7ResourcePack;
-import i7meupdatemod.core.I7ResourcePackConverter;
 import i7meupdatemod.entity.I7GameAssetDetail;
 import i7meupdatemod.util.FileUtil;
 import i7meupdatemod.util.Log;
@@ -53,8 +52,6 @@ public class I7MEUpdateMod {
 
         FileUtil.setResourcePackDirPath(minecraftPath.resolve("resourcepacks"));
 
-        int minecraftMajorVersion = Integer.parseInt(minecraftVersion.split("\\.")[1]);
-
         try {
             // 获取资源
             I7GameAssetDetail I7assets = I7meConfig.getAssetDetail(minecraftVersion, loader);
@@ -71,8 +68,8 @@ public class I7MEUpdateMod {
 
             // 应用资源包
             I7GameConfig I7config = new I7GameConfig(minecraftPath.resolve("options.txt"));
-            I7config.I7addResourcePack("摸鱼人生材质包",
-                    (minecraftMajorVersion <= 12 ? "" : "file/") + applyFileName);
+            I7config.I7addResourcePack("file/" + applyFileName);
+            I7config.I7addincompatibleResourcePack("file/" + applyFileName);
             I7config.I7writeToFile();
         } catch (Exception e) {
             Log.warning(String.format("更新资源包失败：%s", e));
