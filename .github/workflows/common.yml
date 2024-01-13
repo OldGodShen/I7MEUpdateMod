@@ -36,6 +36,8 @@ jobs:
         run: |
           ./gradlew clean shadowJar --info --stacktrace
           cp ./build/libs/*.jar ./
+          pwd
+          ls
       -
         uses: actions/upload-artifact@v3
         with:
@@ -47,5 +49,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v-${{ github.run_number }}
-          files: ${{github.workspace}}/I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar
+          files: ${{github.workspace}}/../I7MEUpdateMod-${{ inputs.type }}-${{ github.run_number }}.jar
           generate_release_notes: true
